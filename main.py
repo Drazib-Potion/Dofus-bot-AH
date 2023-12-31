@@ -8,8 +8,9 @@ import keyboard
 import numpy as np
 import pyautogui
 from pytesseract import pytesseract
-from item import Item
+import preprocess_img
 import screenshots
+import global_var
 
 current_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S") 
 log_filename = f'logs/log_solding_dofus_{current_time}.log' 
@@ -22,46 +23,66 @@ while(True):
         print("Stopping script.")
         break
 
-
+    #first item in bag
     pyautogui.moveTo(1278, 206)
     pyautogui.click()
-    time.sleep(2)
-
+    time.sleep(1)
+    time.sleep(random.uniform(0.5, 1.5))
+    
     screenshots.name()
     screenshots.quantity()
     screenshots.prices_1()
     screenshots.prices_10()
     screenshots.prices_100()
 
-    my_item = Item()
+    preprocessed_name = preprocess_img.preprocess_image_txt(global_var.name_img_name)
+    preprocessed_quantity = preprocess_img.preprocess_image_nbr(global_var.quantity_img_name)
+    preprocessed_prices_1 = preprocess_img.preprocess_image_nbr(global_var.prices_1_img_name)
+    preprocessed_prices_10 = preprocess_img.preprocess_image_nbr(global_var.prices_10_img_name)
+    preprocessed_prices_100 = preprocess_img.preprocess_image_nbr(global_var.prices_100_img_name)
 
-    clean_name = my_item.name.strip().replace('\n', ' ')
+    custom_config_nbr = r'--psm 10 outputbase digits'
+
+    name = pytesseract.image_to_string(preprocessed_name)
+    quantity = int(pytesseract.image_to_string(preprocessed_quantity, config=custom_config_nbr))
+
+    clean_name = name.strip().replace('\n', ' ')
     logging.info(f"name : {clean_name}")
     print(f"name : {clean_name}")
-    logging.info(f"quantity : {my_item.quantity}")
-    print(f"quantity : {my_item.quantity}")
+    logging.info(f"quantity : {quantity}")
+    print(f"quantity : {quantity}")
 
 
-    if (my_item.quantity == 1):
-        pyautogui.write(str(my_item.prices_1 - 1))
-        logging.info(f"1 solding for {my_item.prices_1 - 1} Kamas")
-        print(f"1 solding for {my_item.prices_1 - 1} Kamas")
+
+    if (quantity == 1):
+        prices_1 = int(pytesseract.image_to_string(preprocessed_prices_1, config=custom_config_nbr))
+        if (prices_1 > 1):
+            pyautogui.write(str(prices_1 - 1))
+            logging.info(f"1 solding for {prices_1 - 1} Kamas")
+            print(f"1 solding for {prices_1 - 1} Kamas")
+        else:
+            pyautogui.write(str(1))
+            logging.info(f"1 solding for {1} Kamas")
+            print(f"1 solding for {1} Kamas")
+    elif (quantity == 10):
+        prices_10 = int(pytesseract.image_to_string(preprocessed_prices_10, config=custom_config_nbr))
+        pyautogui.write(str(prices_10 - 1))
+        logging.info(f"10 solding for {prices_10 - 1} Kamas")
+        print(f"10 solding for {prices_10 - 1} Kamas")
+    elif (quantity == 100):
+        prices_100 = int(pytesseract.image_to_string(preprocessed_prices_100, config=custom_config_nbr))
+        pyautogui.write(str(prices_100 - 1))
+        logging.info(f"100 solding for {prices_100 - 1} Kamas")
+        print(f"100 solding for {prices_100 - 1} Kamas")
 
 
-    elif (my_item.quantity == 10):
-        pyautogui.write(str(my_item.prices_10 - 1))
-        logging.info(f"10 solding for {my_item.prices_10 - 1} Kamas")
-        print(f"10 solding for {my_item.prices_10 - 1} Kamas")
-
-
-    elif (my_item.quantity == 100):
-        pyautogui.write(str(my_item.prices_100 - 1))
-        logging.info(f"100 solding for {my_item.prices_100 - 1} Kamas")
-        print(f"100 solding for {my_item.prices_100 - 1} Kamas")
-
-
+    # sell button
     pyautogui.moveTo(498, 445)
     pyautogui.click()
-    # time.sleep(random.uniform(0, 2))
+
+    # popup attention priux trop bas
+    pyautogui.moveTo(863, 689)
+    pyautogui.click()
+    
     print("--------------------------")
     logging.info("-----")
