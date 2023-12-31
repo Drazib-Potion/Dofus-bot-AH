@@ -1,4 +1,5 @@
 
-logs
-img
-__pycache__
+logs/
+img/
+__pycache__/
+todo
