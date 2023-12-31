@@ -1,6 +1,7 @@
 
 from datetime import datetime
 import logging
+import os
 import random
 import time
 import cv2
@@ -12,6 +13,10 @@ import preprocess_img
 import screenshots
 import global_var
 
+
+if not os.path.exists("logs"): os.makedirs("logs")
+if not os.path.exists("img"): os.makedirs("img")
+
 current_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S") 
 log_filename = f'logs/log_solding_dofus_{current_time}.log' 
 
@@ -21,6 +26,12 @@ logging.info("----- Starting new session -----")
 while(True):
     if keyboard.is_pressed('f8'):
         print("Stopping script.")
+        os.remove(global_var.name_img_name)
+        os.remove(global_var.quantity_img_name)
+        os.remove(global_var.prices_1_img_name)
+        os.remove(global_var.prices_10_img_name)
+        os.remove(global_var.prices_100_img_name)
+
         break
 
     #first item in bag
