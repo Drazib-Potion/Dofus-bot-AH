@@ -1,37 +1,67 @@
 
+from datetime import datetime
+import logging
+import random
+import time
 import cv2
+import keyboard
 import numpy as np
+import pyautogui
 from pytesseract import pytesseract
-import os
-
+from item import Item
 import screenshots
-import global_var
-import OCR
 
-# if os.path.exists(global_var.quantity_img_name): os.remove(global_var.quantity_img_name)
-# if os.path.exists(global_var.prices_1_img_name):os.remove(global_var.prices_1_img_name)
-# if os.path.exists(global_var.prices_10_img_name):os.remove(global_var.prices_10_img_name)
-# if os.path.exists(global_var.prices_100_img_name):os.remove(global_var.prices_100_img_name)
+current_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S") 
+log_filename = f'logs/log_solding_dofus_{current_time}.log' 
 
-screenshots.quantity()
-screenshots.prices_1()
-screenshots.prices_10()
-screenshots.prices_100()
+logging.basicConfig(filename=log_filename, filemode='w', level=logging.INFO, format='%(message)s')
+logging.info("----- Starting new session -----")
 
-preprocessed_quantity = OCR.preprocess_image(global_var.quantity_img_name)
-preprocessed_prices_1 = OCR.preprocess_image(global_var.prices_1_img_name)
-preprocessed_prices_10 = OCR.preprocess_image(global_var.prices_10_img_name)
-preprocessed_prices_100 = OCR.preprocess_image(global_var.prices_100_img_name)
+while(True):
+    if keyboard.is_pressed('f8'):
+        print("Stopping script.")
+        break
 
 
-custom_config = r'--psm 10 outputbase digits'
+    pyautogui.moveTo(1278, 206)
+    pyautogui.click()
+    time.sleep(2)
 
-word = pytesseract.image_to_string(preprocessed_quantity, config=custom_config)
-print(word.strip())
+    screenshots.name()
+    screenshots.quantity()
+    screenshots.prices_1()
+    screenshots.prices_10()
+    screenshots.prices_100()
 
-word = pytesseract.image_to_string(preprocessed_prices_1, config=custom_config)
-print(word.strip())
-word = pytesseract.image_to_string(preprocessed_prices_10, config=custom_config)
-print(word.strip())
-word = pytesseract.image_to_string(preprocessed_prices_100, config=custom_config)
-print(word.strip())
+    my_item = Item()
+
+    clean_name = my_item.name.strip().replace('\n', ' ')
+    logging.info(f"name : {clean_name}")
+    print(f"name : {clean_name}")
+    logging.info(f"quantity : {my_item.quantity}")
+    print(f"quantity : {my_item.quantity}")
+
+
+    if (my_item.quantity == 1):
+        pyautogui.write(str(my_item.prices_1 - 1))
+        logging.info(f"1 solding for {my_item.prices_1 - 1} Kamas")
+        print(f"1 solding for {my_item.prices_1 - 1} Kamas")
+
+
+    elif (my_item.quantity == 10):
+        pyautogui.write(str(my_item.prices_10 - 1))
+        logging.info(f"10 solding for {my_item.prices_10 - 1} Kamas")
+        print(f"10 solding for {my_item.prices_10 - 1} Kamas")
+
+
+    elif (my_item.quantity == 100):
+        pyautogui.write(str(my_item.prices_100 - 1))
+        logging.info(f"100 solding for {my_item.prices_100 - 1} Kamas")
+        print(f"100 solding for {my_item.prices_100 - 1} Kamas")
+
+
+    pyautogui.moveTo(498, 445)
+    pyautogui.click()
+    # time.sleep(random.uniform(0, 2))
+    print("--------------------------")
+    logging.info("-----")
