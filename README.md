@@ -3,6 +3,12 @@
 ## Introduction
 This document provides instructions on how to use the Auction House (AH) Bot. The AH Bot automates selling within the Auction House for you. Please follow the setup and instructions carefully to ensure the bot operates correctly.
 
+#Instructions for users
+
+todo ...
+
+#Instructions for devs
+
 ## Prerequisites
 Before running the AH Bot, ensure you have the following:
 - Python 3 installed on your system.
