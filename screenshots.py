@@ -14,20 +14,20 @@ def quantity():
 
     screenshot.save(global_var.quantity_img_name)
 
-def prices_1():
+def price_1():
     x, y, width, height = 510, 550, 70, 30
     screenshot = ImageGrab.grab(bbox=(x, y, x + width, y + height))
 
-    screenshot.save(global_var.prices_1_img_name)
+    screenshot.save(global_var.price_1_img_name)
 
-def prices_10():
+def price_10():
     x, y, width, height = 510, 590, 70, 30
     screenshot = ImageGrab.grab(bbox=(x, y, x + width, y + height))
 
-    screenshot.save(global_var.prices_10_img_name)
+    screenshot.save(global_var.price_10_img_name)
 
-def prices_100():
+def price_100():
     x, y, width, height = 510, 635, 70, 30
     screenshot = ImageGrab.grab(bbox=(x, y, x + width, y + height))
 
-    screenshot.save(global_var.prices_100_img_name)
+    screenshot.save(global_var.price_100_img_name)

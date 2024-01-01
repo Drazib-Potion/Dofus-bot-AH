@@ -4,6 +4,6 @@ pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 name_img_name = 'img/name.png'
 quantity_img_name = 'img/quantity.png'
-prices_1_img_name = 'img/prices_1.png'
-prices_10_img_name = 'img/prices_10.png'
-prices_100_img_name = 'img/prices_100.png'
+price_1_img_name = 'img/price_1.png'
+price_10_img_name = 'img/price_10.png'
+price_100_img_name = 'img/price_100.png'
