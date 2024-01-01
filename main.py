@@ -5,8 +5,8 @@ import time
 import keyboard
 import pyautogui
 
-from OCR import OCRClass
-from Logger import LoggerClass
+from classes.OCR import OCRClass
+from classes.Logger import LoggerClass
 
 if not os.path.exists("logs"): os.makedirs("logs")
 if not os.path.exists("img"): os.makedirs("img")
