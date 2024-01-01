@@ -30,8 +30,9 @@ class Bot:
             Ocr  = OCRClass()
             Ocr.screenshoting()
             Ocr.preprocessing()
-            Ocr.process_name_img()
-            Ocr.process_quantity_img()
+
+            Ocr.name = Ocr.process_txt_img(Ocr.preprocessed_quantity_img)
+            Ocr.quantity = Ocr.process_nbr_img(Ocr.preprocessed_quantity_img)
 
             clean_name = Ocr.name.strip().replace('\n', ' ')
             self.Logger.name_logs(clean_name)
@@ -39,7 +40,7 @@ class Bot:
 
             match Ocr.quantity:
                 case 1:
-                    Ocr.process_price_1_img()
+                    Ocr.price_1 = Ocr.process_nbr_img(Ocr.preprocessed_price_1_img)
                     if (Ocr.price_1 == 1):
                         pyautogui.write(str(1))
                         self.Logger.price_1_logs(1)
@@ -47,11 +48,11 @@ class Bot:
                         pyautogui.write(str(Ocr.price_1 - 1))
                         self.Logger.price_1_logs(Ocr.price_1 - 1)
                 case 10:
-                    Ocr.process_price_10_img()
+                    Ocr.price_10 = Ocr.process_nbr_img(Ocr.preprocessed_price_10_img)
                     pyautogui.write(str(Ocr.price_10 - 1))
                     self.Logger.price_10_logs(Ocr.price_10 - 1)
                 case 100:
-                    Ocr.process_price_100_img()
+                    Ocr.price_100 = Ocr.process_nbr_img(Ocr.preprocessed_price_100_img)
                     pyautogui.write(str(Ocr.price_100 - 1))
                     self.Logger.price_100_logs(Ocr.price_100 - 1)
 

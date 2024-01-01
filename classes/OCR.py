@@ -6,7 +6,16 @@ from PIL import ImageGrab
 class OCRClass:
     def __init__(self):
             self.custom_config_nbr = r'--psm 10 outputbase digits'
-    
+            self.quantity = None
+            self.price_1 = None
+            self.price_10 = None
+            self.price_100 = None
+
+            self.preporcessed_quantity_img = None
+            self.preporcessed_price_1_img = None
+            self.preporcessed_price_10_img = None
+            self.preporcessed_price_100_img = None
+
     def screenshoting(self):
         self.screenshot(global_var.name_pos, global_var.name_img_name)
         self.screenshot(global_var.quantity_pos, global_var.quantity_img_name)
@@ -25,20 +34,8 @@ class OCRClass:
         screenshot = ImageGrab.grab(bbox=(frame['x'], frame['y'], frame['x'] + frame['width'], frame['y'] + frame['height']))
         screenshot.save(file_name)
     
-    def process_name_img(self):
-        self.name = pytesseract.image_to_string(self.preprocessed_name_img)
+    def process_txt_img(self, img):
+        return pytesseract.image_to_string(img)
 
-    def process_quantity_img(self):
-        self.quantity = int(pytesseract.image_to_string(self.preprocessed_quantity_img, config=self.custom_config_nbr))
-
-    def process_price(self, price, img):
-        price = int(pytesseract.image_to_string(img, config=self.custom_config_nbr))
-
-    def process_price_1_img(self):
-        self.price_1 = int(pytesseract.image_to_string(self.preprocessed_price_1_img, config=self.custom_config_nbr))
-
-    def process_price_10_img(self):
-        self.price_10 = int(pytesseract.image_to_string(self.preprocessed_price_10_img, config=self.custom_config_nbr))
-
-    def process_price_100_img(self):
-        self.price_100 = int(pytesseract.image_to_string(self.preprocessed_price_100_img, config=self.custom_config_nbr))
+    def process_nbr_img(self, img):
+        return int(pytesseract.image_to_string(img, config=self.custom_config_nbr))
