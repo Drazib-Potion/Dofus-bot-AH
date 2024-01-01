@@ -2,5 +2,8 @@
 logs/
 img/
 __pycache__/
+build/
+dist/
+*.spec
 todo
 dont_work
