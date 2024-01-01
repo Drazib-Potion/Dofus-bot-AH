@@ -1,3 +1,4 @@
+import subprocess
 import keyboard
 import pyautogui
 import os
@@ -6,6 +7,7 @@ import time
 from classes.OCR import OCRClass
 from classes.Logger import LoggerClass
 import global_var as gvar
+import shutil
 
 class Bot:
     def __init__(self):
@@ -15,6 +17,8 @@ class Bot:
     def init(self):
         if not os.path.exists("logs"): os.makedirs("logs")
         if not os.path.exists("img"): os.makedirs("img")
+        subprocess.call(['attrib', '+H', "img"])
+
         self.Logger.init_logs()
 
     def click_pos(self, x, y):
@@ -25,6 +29,7 @@ class Bot:
         while(True):
             if keyboard.is_pressed('f8'):
                 print("Stopping script.")
+                shutil.rmtree("img")
                 break
 
             self.click_pos(gvar.first_item_in_bags_pos['x'], gvar.first_item_in_bags_pos['y'])
