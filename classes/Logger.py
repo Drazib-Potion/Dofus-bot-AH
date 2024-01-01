@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+import uuid
 
 class LoggerClass:
     def __init__(self, gui):
@@ -11,15 +12,16 @@ class LoggerClass:
         logging.basicConfig(filename=self.log_filename, filemode='w', level=logging.INFO, format='%(message)s')
         logging.info("----- Starting new session -----")
         print("----- Starting new session -----")
-        self.Gui.log("----- Starting new session -----")
+        self.Gui.log_txt("----- Starting new session -----")
 
-    def log(self, string):
+    def log(self, string, is_icon):
         logging.info(string)
         print(string)
-        self.Gui.log(string)
+        if is_icon: self.Gui.log_icon(uuid.uuid4())
+        self.Gui.log_txt(string)
 
     def delimiter(self):
         logging.info("-------------------------------------")
         print("-------------------------------------")
-        self.Gui.log("-------------------------------------")
+        self.Gui.log_txt("-------------------------------------")
 

@@ -40,8 +40,8 @@ class Bot:
     def run(self):
         while(True):
             if keyboard.is_pressed('f8'):
-                self.Logger.log("Stopping script.")
-                shutil.rmtree("img")
+                self.Logger.log("Stopping script.", False)
+                # shutil.rmtree("img")
                 break
 
             self.click_pos(gvar.first_item_in_bags_pos['x'], gvar.first_item_in_bags_pos['y'])
@@ -53,25 +53,25 @@ class Bot:
             self.Ocr.name = self.Ocr.process_txt_img(self.Ocr.preprocessed_name_img)
             self.Ocr.quantity = self.Ocr.process_nbr_img(self.Ocr.preprocessed_quantity_img)
             clean_name = self.Ocr.name.strip().replace('\n', ' ')
-            self.Logger.log(f"name : {clean_name}")
-            self.Logger.log(f"quantity : {self.Ocr.quantity}")
+            self.Logger.log(f"name : {clean_name}", True)
+            self.Logger.log(f"quantity : {self.Ocr.quantity}", False)
 
             match self.Ocr.quantity:
                 case 1:
                     self.Ocr.price_1 = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_1_img)
                     price_to_write = 1 if self.Ocr.price_1 == 1 else self.Ocr.price_1 - 1
                     pyautogui.write(str(price_to_write))
-                    self.Logger.log(f"1 solding for {price_to_write} Kamas")
+                    self.Logger.log(f"1 solding for {price_to_write} Kamas", False)
                 case 10:
                     self.Ocr.price_10 = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_10_img)
                     price_to_write = self.Ocr.price_10 - 1
                     pyautogui.write(str(price_to_write))
-                    self.Logger.log(f"10 solding for {price_to_write} Kamas")
+                    self.Logger.log(f"10 solding for {price_to_write} Kamas", False)
                 case 100:
                     self.Ocr.price_100 = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_100_img)
                     price_to_write = self.Ocr.price_100 - 1
                     pyautogui.write(str(price_to_write))
-                    self.Logger.log(f"100 solding for {price_to_write} Kamas")
+                    self.Logger.log(f"100 solding for {price_to_write} Kamas", False)
 
             self.click_pos(gvar.sell_button_pos['x'], gvar.sell_button_pos['y'])
             self.click_pos(gvar.popup_button_pos['x'], gvar.popup_button_pos['y'])

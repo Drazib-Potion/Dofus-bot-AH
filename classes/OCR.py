@@ -18,11 +18,12 @@ class OCRClass:
             self.preporcessed_price_100_img = None
 
     def screenshoting(self):
-        self.screenshot(gvar.name_pos, gvar.name_img_name)
-        self.screenshot(gvar.quantity_pos, gvar.quantity_img_name)
-        self.screenshot(gvar.price_1_pos, gvar.price_1_img_name)
-        self.screenshot(gvar.price_10_pos, gvar.price_10_img_name)
-        self.screenshot(gvar.price_100_pos, gvar.price_100_img_name)
+        self.screenshot(gvar.icon_item_rect, gvar.icon_item_img_name)
+        self.screenshot(gvar.name_rect, gvar.name_img_name)
+        self.screenshot(gvar.quantity_rect, gvar.quantity_img_name)
+        self.screenshot(gvar.price_1_rect, gvar.price_1_img_name)
+        self.screenshot(gvar.price_10_rect, gvar.price_10_img_name)
+        self.screenshot(gvar.price_100_rect, gvar.price_100_img_name)
 
     def preprocessing(self):
         self.preprocessed_name_img = self.preprocess_txt_img(gvar.name_img_name)
