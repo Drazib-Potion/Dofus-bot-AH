@@ -15,6 +15,7 @@ class GUIClass:
 
     def init(self, start_bot_func):
         self.master.title("AH Bot Control Panel")
+        self.master.iconphoto(False, PhotoImage(file='icon.png'))
 
         self.start_button = tk.Button(self.master, text="Start", command=start_bot_func)
         self.start_button.pack()
