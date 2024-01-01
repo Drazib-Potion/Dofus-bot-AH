@@ -20,16 +20,16 @@ class LoggerClass:
         print(f"quantity : {quantity}")
 
     def price_1_logs(self, price_1):
-        logging.info(f"1 solding for {price_1 - 1} Kamas")
-        print(f"1 solding for {price_1 - 1} Kamas")
+        logging.info(f"1 solding for {price_1} Kamas")
+        print(f"1 solding for {price_1} Kamas")
 
     def price_10_logs(self, price_10):
-        logging.info(f"10 solding for {price_10 - 1} Kamas")
-        print(f"10 solding for {price_10 - 1} Kamas")
+        logging.info(f"10 solding for {price_10} Kamas")
+        print(f"10 solding for {price_10} Kamas")
 
     def price_100_logs(self, price_100):
-        logging.info(f"100 solding for {price_100 - 1} Kamas")
-        print(f"100 solding for {price_100 - 1} Kamas")
+        logging.info(f"100 solding for {price_100} Kamas")
+        print(f"100 solding for {price_100} Kamas")
 
     def delimiter(self):
         print("-------------------------------------")

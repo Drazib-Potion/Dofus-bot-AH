@@ -43,4 +43,19 @@ price_100_pos = {
     'height': 30
 }
 
+first_item_in_bags_pos = {
+    'x': 1278,
+    'y': 206,
+}
+
+sell_button_pos = {
+    'x': 498,
+    'y': 445,
+}
+
+popup_button_pos = {
+    'x': 863,
+    'y': 689,
+}
+
 
