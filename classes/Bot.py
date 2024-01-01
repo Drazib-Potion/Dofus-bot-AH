@@ -1,5 +1,4 @@
 import global_var
-import screenshots
 import preprocess_img
 from pytesseract import pytesseract
 from OCR import OCRProcessor
