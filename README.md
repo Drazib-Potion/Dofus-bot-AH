@@ -24,6 +24,10 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
 
 3. **Ensure Prices are Visible:** Confirm that the item prices are fully visible on the screen once you select an item in your bags. The bot relies on screen reading to function correctly, so it's crucial that all relevant information is displayed and unobstructed.
 
+4. **Ensure that the items are sorted correctly:**
+   - FOR SELLING: the items in your bag should be "sorted by name"
+   - FOR REPRICING: the items in the AH window should be sorted by "time left" in increasing order (low time should be at the top)
+
 6. **Running the Bot:** Once the bot is running, it will automate tasks within the 'Sells' tab of the Auction House. Ensure not to use the mouse or keyboard as it may interfere with the bot's operations.
 
 ## Important Notes
