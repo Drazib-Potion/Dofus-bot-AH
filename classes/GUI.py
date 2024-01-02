@@ -14,7 +14,7 @@ class GUIClass:
 
         self.master.protocol("WM_DELETE_WINDOW", self.on_closing)
 
-    def init(self, start_bot_func):
+    def init(self, selling, repricing):
         self.master.title("AH Bot Control Panel")
 
 
@@ -33,8 +33,11 @@ class GUIClass:
 
 
 
-        self.start_button = tk.Button(self.master, text="Start", command=start_bot_func)
-        self.start_button.pack()
+        self.selling_button = tk.Button(self.master, text="Start selling", command=selling)
+        self.repricing_button = tk.Button(self.master, text="Start repricing", command=repricing)
+        
+        self.selling_button.pack()
+        self.repricing_button.pack()
 
         self.log_feed = scrolledtext.ScrolledText(self.master, wrap=tk.WORD)
         self.log_feed.pack(expand=True, fill='both')

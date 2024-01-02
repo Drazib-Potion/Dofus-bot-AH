@@ -11,6 +11,7 @@ class OCRClass:
             self.item = {
                 'name': '',
                 'quantity': '',
+                'quantity_in_feed': '',
                 'price_1': '',
                 'price_10': '',
                 'price_100': ''
@@ -18,6 +19,7 @@ class OCRClass:
 
             self.last_item = {
                 'name': '',
+                'quantity_in_feed': '',
                 'quantity': '',
                 'price_1': '',
                 'price_10': '',
@@ -25,6 +27,7 @@ class OCRClass:
             }
 
             self.preprocessed_quantity_img = None
+            self.preprocessed_quantity_in_feed_img = None
             self.preprocessed_price_1_img = None
             self.preprocessed_price_10_img = None
             self.preprocessed_price_100_img = None
@@ -33,6 +36,7 @@ class OCRClass:
         self.screenshot(gvar.icon_item_rect, gvar.icon_item_img_name)
         self.screenshot(gvar.name_rect, gvar.name_img_name)
         self.screenshot(gvar.quantity_rect, gvar.quantity_img_name)
+        self.screenshot(gvar.quantity_in_feed_rect, gvar.quantity_in_feed_img_name)
         self.screenshot(gvar.price_1_rect, gvar.price_1_img_name)
         self.screenshot(gvar.price_10_rect, gvar.price_10_img_name)
         self.screenshot(gvar.price_100_rect, gvar.price_100_img_name)
@@ -40,6 +44,7 @@ class OCRClass:
     def preprocessing(self):
         self.preprocessed_name_img = self.preprocess_txt_img(gvar.name_img_name)
         self.preprocessed_quantity_img = self.preprocess_nbr_img(gvar.quantity_img_name)
+        self.preprocessed_quantity_in_feed_img = self.preprocess_nbr_img(gvar.quantity_in_feed_img_name)
         self.preprocessed_price_1_img = self.preprocess_nbr_img(gvar.price_1_img_name)
         self.preprocessed_price_10_img = self.preprocess_nbr_img(gvar.price_10_img_name)
         self.preprocessed_price_100_img = self.preprocess_nbr_img(gvar.price_100_img_name)

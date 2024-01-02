@@ -5,6 +5,8 @@ pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 icon_item_img_name = 'img/icon_item.png'
 name_img_name = 'img/name.png'
 quantity_img_name = 'img/quantity.png'
+quantity_in_feed_img_name = 'img/quantity_in_feed.png'
+
 price_1_img_name = 'img/price_1.png'
 price_10_img_name = 'img/price_10.png'
 price_100_img_name = 'img/price_100.png'
@@ -30,6 +32,14 @@ quantity_rect = {
     'height': 50
 }
 
+quantity_in_feed_rect = {
+    'x': 535,
+    'y': 325,
+    'width': 35,
+    'height': 40
+}
+
+
 price_1_rect = {
     'x': 510,
     'y': 550,
@@ -50,7 +60,8 @@ price_100_rect = {
     'width': 70,
     'height': 30
 }
-
+#########################################################################
+#########################################################################
 first_item_in_bags_pos = {
     'x': 1278,
     'y': 206,
@@ -66,4 +77,13 @@ popup_button_pos = {
     'y': 689,
 }
 
+repricing_button_pos = {
+    'x': 520,
+    'y': 445,
+}
+
+first_item_repricing_pos = {
+    'x': 850,
+    'y': 260,
+}
 
