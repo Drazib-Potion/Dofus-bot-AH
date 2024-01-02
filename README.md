@@ -18,6 +18,11 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
       - Open your terminal or command prompt.
       - Navigate to the directory where the AH Bot files are located.
       - Run the command: `python3 main.py`
+        
+      Alternatively, you can compile the .exe:
+      ```bash
+      pyinstaller.exe --add-data "./icon.png;." --icon=icon.png -w .\main.py
+      ```
 
 6. **Running the Bot:** Once the bot is running, it will automate tasks within the 'Sells' tab of the Auction House. Ensure not to use the mouse or keyboard as it may interfere with the bot's operations.
 
