@@ -1,4 +1,5 @@
 import os
+import sys
 import tkinter as tk
 from tkinter import PhotoImage, scrolledtext
 import global_var as gvar
@@ -15,7 +16,22 @@ class GUIClass:
 
     def init(self, start_bot_func):
         self.master.title("AH Bot Control Panel")
-        self.master.iconphoto(False, PhotoImage(file='icon.png'))
+
+
+        # Determine if we're running in a bundle or a normal Python environment
+        if getattr(sys, 'frozen', False):
+            # If the application is run as a bundle, the pyInstaller bootloader
+            # extends the sys module by a flag frozen=True and sets the app 
+            # path into variable _MEIPASS'.
+            application_path = sys._MEIPASS
+        else:
+            application_path = os.path.dirname(os.path.abspath(__file__))
+
+        # Use os.path.join to construct the absolute path to the resource
+        icon_path = os.path.join(application_path, 'icon.png')
+        self.master.iconphoto(False, PhotoImage(file=icon_path))
+
+
 
         self.start_button = tk.Button(self.master, text="Start", command=start_bot_func)
         self.start_button.pack()
