@@ -8,6 +8,22 @@ class OCRClass:
     def __init__(self):
             self.custom_config_nbr = r'--psm 10 outputbase digits'
 
+            self.item = {
+                'name': '',
+                'quantity': '',
+                'price_1': '',
+                'price_10': '',
+                'price_100': ''
+            }
+
+            self.last_item = {
+                'name': '',
+                'quantity': '',
+                'price_1': '',
+                'price_10': '',
+                'price_100': ''
+            }
+
             self.preprocessed_quantity_img = None
             self.preprocessed_price_1_img = None
             self.preprocessed_price_10_img = None
