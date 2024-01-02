@@ -12,8 +12,8 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
 3. **Ensure Prices are Visible:** Confirm that the item prices are fully visible on the screen once you select an item in your bags. The bot relies on screen reading to function correctly, so it's crucial that all relevant information is displayed and unobstructed.
 
 4. **Launch the Bot:**
-   - 🚧For users (Work in progress)🚧:
-      - launch the Dofus-bot-AH.exe file and click on Start 
+   - For users :
+      - launch the Dofus-bot-AH/main/Dofus-bot-AH.exe file in and click on Start 
    - For devs:
       - Open your terminal or command prompt.
       - Navigate to the directory where the AH Bot files are located.
