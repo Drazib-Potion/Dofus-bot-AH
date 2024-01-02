@@ -18,7 +18,7 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
 
 ## Instructions
 
-1. **Open the Auction House (AH):** Before launching the bot, make sure you have the Auction House opened on Dofus.
+1. **Open the Auction House (AH):** Before starting the bot, make sure you have the Auction House opened on Dofus.
 
 2. **Navigate to the Sells Tab:** Within the Auction House, navigate to the 'Sells' tab where your items for sale are listed.
 
