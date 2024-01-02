@@ -7,15 +7,11 @@ import numpy as np
 class OCRClass:
     def __init__(self):
             self.custom_config_nbr = r'--psm 10 outputbase digits'
-            self.quantity = None
-            self.price_1 = None
-            self.price_10 = None
-            self.price_100 = None
 
-            self.preporcessed_quantity_img = None
-            self.preporcessed_price_1_img = None
-            self.preporcessed_price_10_img = None
-            self.preporcessed_price_100_img = None
+            self.preprocessed_quantity_img = None
+            self.preprocessed_price_1_img = None
+            self.preprocessed_price_10_img = None
+            self.preprocessed_price_100_img = None
 
     def screenshoting(self):
         self.screenshot(gvar.icon_item_rect, gvar.icon_item_img_name)
@@ -52,7 +48,13 @@ class OCRClass:
         return img
     
     def process_nbr_img(self, img):
-        return int(pytesseract.image_to_string(img, config=self.custom_config_nbr))
+        try:
+            result_str = pytesseract.image_to_string(img, config=self.custom_config_nbr).strip().replace("\n", "").replace(".", "")
+            result_int = int(result_str)
+            return result_int
+        except ValueError:
+            print("process_nbr failed")
+            exit(84)
 
     def process_txt_img(self, img):
         return pytesseract.image_to_string(img)
