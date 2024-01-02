@@ -3,14 +3,6 @@
 ## Introduction
 This document provides instructions on how to use the Auction House (AH) Bot. The AH Bot automates selling within the Auction House for you. Please follow the setup and instructions carefully to ensure the bot operates correctly.
 
-## Instructions
-
-1. **Open the Auction House (AH):** Before launching the bot, make sure you have the Auction House opened on Dofus.
-
-2. **Navigate to the Sells Tab:** Within the Auction House, navigate to the 'Sells' tab where your items for sale are listed.
-
-3. **Ensure Prices are Visible:** Confirm that the item prices are fully visible on the screen once you select an item in your bags. The bot relies on screen reading to function correctly, so it's crucial that all relevant information is displayed and unobstructed.
-
 4. **Launch the Bot:**
    - For users :
       - launch the Dofus-bot-AH/main/Dofus-bot-AH.exe file in and click on Start 
@@ -23,6 +15,14 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
       ```bash
       pyinstaller.exe --add-data "./icon.png;." --icon=icon.png -w .\main.py
       ```
+
+## Instructions
+
+1. **Open the Auction House (AH):** Before launching the bot, make sure you have the Auction House opened on Dofus.
+
+2. **Navigate to the Sells Tab:** Within the Auction House, navigate to the 'Sells' tab where your items for sale are listed.
+
+3. **Ensure Prices are Visible:** Confirm that the item prices are fully visible on the screen once you select an item in your bags. The bot relies on screen reading to function correctly, so it's crucial that all relevant information is displayed and unobstructed.
 
 6. **Running the Bot:** Once the bot is running, it will automate tasks within the 'Sells' tab of the Auction House. Ensure not to use the mouse or keyboard as it may interfere with the bot's operations.
 
