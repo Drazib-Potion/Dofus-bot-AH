@@ -3,7 +3,7 @@
 ## Introduction
 This document provides instructions on how to use the Auction House (AH) Bot. The AH Bot automates selling within the Auction House for you. Please follow the setup and instructions carefully to ensure the bot operates correctly.
 
-4. **Launch the Bot:**
+**Launch the Bot:**
    - For users :
       - launch the Dofus-bot-AH/main/Dofus-bot-AH.exe file in and click on Start 
    - For devs:
