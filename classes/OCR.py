@@ -75,7 +75,7 @@ class OCRClass:
             result_int = int(result_str)
             return result_int
         except ValueError:
-            print("process_nbr failed")
+            print("process_nbr failed, please do this item by hand and start again")
             exit(84)
 
     def process_txt_img(self, img):
