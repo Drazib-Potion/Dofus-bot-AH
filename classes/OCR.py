@@ -76,9 +76,7 @@ class OCRClass:
             return result_int
         except ValueError:
             print("process_nbr failed")
-            #everytime i saw this error, OCR was trying to read 8 so .... 🤷‍♂️
-            return 8
-            # exit(84)
+            exit(84)
 
     def process_txt_img(self, img):
         return pytesseract.image_to_string(img)
