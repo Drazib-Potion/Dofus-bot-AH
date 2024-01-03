@@ -36,7 +36,7 @@ class OCRClass:
         self.screenshot(gvar.icon_item_rect, gvar.icon_item_img_name)
         self.screenshot(gvar.name_rect, gvar.name_img_name)
         self.screenshot(gvar.quantity_rect, gvar.quantity_img_name)
-        self.screenshot(gvar.quantity_in_feed_rect, gvar.quantity_in_feed_img_name)
+        self.screenshot(gvar.quantity_repricing_rect, gvar.quantity_in_feed_img_name)
         self.screenshot(gvar.price_1_rect, gvar.price_1_img_name)
         self.screenshot(gvar.price_10_rect, gvar.price_10_img_name)
         self.screenshot(gvar.price_100_rect, gvar.price_100_img_name)
@@ -68,6 +68,7 @@ class OCRClass:
         img = cv2.imread(img_path)
         return img
     
+
     def process_nbr_img(self, img):
         try:
             result_str = pytesseract.image_to_string(img, config=self.custom_config_nbr).strip().replace("\n", "").replace(".", "")
@@ -79,3 +80,16 @@ class OCRClass:
 
     def process_txt_img(self, img):
         return pytesseract.image_to_string(img)
+    
+    def process_nbr_feed_img(self, image):
+        # Configure Pytesseract to only recognize specific characters
+        custom_config = r'--psm 10 outputbase digits tessedit_char_whitelist=10'
+        
+        try:
+            result_str = pytesseract.image_to_string(self.preprocessed_quantity_in_feed_img, config=custom_config)
+            result_int = int(result_str)
+            return result_int
+        except ValueError:
+            print("process_nbr_feed failed")
+            exit(84)
+        

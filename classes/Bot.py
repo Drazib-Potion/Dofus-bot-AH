@@ -57,7 +57,7 @@ class Bot:
             self.Ocr.preprocessing()
 
             self.Ocr.item['name'] = self.Ocr.process_txt_img(self.Ocr.preprocessed_name_img)
-            self.Ocr.item['quantity_in_feed'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_quantity_img)
+            self.Ocr.item['quantity_in_feed'] = self.Ocr.process_nbr_feed_img(self.Ocr.preprocessed_quantity_in_feed_img)
             clean_name = self.Ocr.item['name'].strip().replace('\n', ' ')
             self.Logger.log(f"name : {clean_name}", True)
             self.Logger.log(f"quantity : {self.Ocr.item['quantity_in_feed']}", False)

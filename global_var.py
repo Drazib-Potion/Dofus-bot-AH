@@ -33,10 +33,17 @@ quantity_rect = {
 }
 
 quantity_in_feed_rect = {
-    'x': 535,
-    'y': 325,
-    'width': 35,
+    'x': 1015,
+    'y': 245,
+    'width': 40,
     'height': 40
+}
+
+quantity_repricing_rect = {
+    'x': 517,
+    'y': 313,
+    'width': 40,
+    'height': 21
 }
 
 
