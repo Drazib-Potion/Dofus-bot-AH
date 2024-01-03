@@ -3,7 +3,7 @@
 ## Introduction
 This document provides instructions on how to use the Auction House (AH) Bot. The AH Bot automates selling and uindercutting price within the Auction House for you. Please follow the setup and instructions carefully to ensure the bot operates correctly.
 
-NOTE: for better result, you can you this dofus theme https://raw.githubusercontent.com/UNIIPROD/DOFUS/main/UNIIPROD.json
+NOTE: for better result, you can use this dofus theme https://raw.githubusercontent.com/UNIIPROD/DOFUS/main/UNIIPROD.json
 
 **Launch the Bot:**
    - For users :
