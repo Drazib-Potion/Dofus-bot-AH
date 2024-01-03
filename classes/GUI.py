@@ -1,7 +1,7 @@
 import os
 import sys
 import tkinter as tk
-from tkinter import PhotoImage, scrolledtext
+from tkinter import PhotoImage, scrolledtext, messagebox
 import global_var as gvar
 
 class GUIClass:
@@ -33,9 +33,9 @@ class GUIClass:
 
 
 
-        self.selling_button = tk.Button(self.master, text="Start selling", command=selling)
-        self.repricing_button = tk.Button(self.master, text="Start repricing", command=repricing)
-        
+        self.selling_button = tk.Button(self.master, text="Start selling", command=lambda: self.popup_msg("Warning", "Make sure the items in your bags are sorted by name, Click OK to proceed or Cancel to wait.", selling))
+        self.repricing_button = tk.Button(self.master, text="Start repricing", command=lambda: self.popup_msg("Warning", "Make sure the items in your AH feed are sorted by time (lower time at the top), Click OK to proceed or Cancel to wait.", repricing))
+
         self.selling_button.pack()
         self.repricing_button.pack()
 
@@ -73,3 +73,7 @@ class GUIClass:
     def on_closing(self):
         self.is_running = False
         self.master.destroy()
+
+    def popup_msg(self, type_msg, msg, func=None):
+        resp = messagebox.askokcancel(type_msg, msg)
+        if resp and func: func()
