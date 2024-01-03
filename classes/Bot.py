@@ -57,27 +57,27 @@ class Bot:
             self.Ocr.preprocessing()
 
             self.Ocr.item['name'] = self.Ocr.process_txt_img(self.Ocr.preprocessed_name_img)
-            self.Ocr.item['quantity_in_feed'] = self.Ocr.process_nbr_feed_img(self.Ocr.preprocessed_quantity_in_feed_img)
+            self.Ocr.item['quantity_in_feed'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_quantity_in_feed_img, r'--psm 10 outputbase digits tessedit_char_whitelist=10')
             clean_name = self.Ocr.item['name'].strip().replace('\n', ' ')
             self.Logger.log(f"name : {clean_name}", True)
             self.Logger.log(f"quantity : {self.Ocr.item['quantity_in_feed']}", False)
 
             match self.Ocr.item['quantity_in_feed']:
                 case 1:
-                    self.Ocr.item['price_1'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_1_img)
+                    self.Ocr.item['price_1'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_1_img, self.Ocr.custom_config_nbr)
                     price_to_write = 1 if self.Ocr.item['price_1'] == 1 else self.Ocr.item['price_1']
                     if price_to_write != 1:
                         price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity_in_feed'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
                     self.Logger.log(f"1 repricing for {price_to_write} Kamas", False)
                 case 10:
-                    self.Ocr.item['price_10'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_10_img)
+                    self.Ocr.item['price_10'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_10_img, self.Ocr.custom_config_nbr)
                     price_to_write = self.Ocr.item['price_10']
                     price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity_in_feed'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
                     self.Logger.log(f"10 repricing for {price_to_write} Kamas", False)
                 case 100:
-                    self.Ocr.item['price_100'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_100_img)
+                    self.Ocr.item['price_100'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_100_img, self.Ocr.custom_config_nbr)
                     price_to_write = self.Ocr.item['price_100']
                     price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity_in_feed'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
@@ -106,27 +106,27 @@ class Bot:
             self.Ocr.preprocessing()
 
             self.Ocr.item['name'] = self.Ocr.process_txt_img(self.Ocr.preprocessed_name_img)
-            self.Ocr.item['quantity'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_quantity_img)
+            self.Ocr.item['quantity'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_quantity_img, self.Ocr.custom_config_nbr)
             clean_name = self.Ocr.item['name'].strip().replace('\n', ' ')
             self.Logger.log(f"name : {clean_name}", True)
             self.Logger.log(f"quantity : {self.Ocr.item['quantity']}", False)
 
             match self.Ocr.item['quantity']:
                 case 1:
-                    self.Ocr.item['price_1'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_1_img)
+                    self.Ocr.item['price_1'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_1_img, self.Ocr.custom_config_nbr)
                     price_to_write = 1 if self.Ocr.item['price_1'] == 1 else self.Ocr.item['price_1']
                     if price_to_write != 1:
                         price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
                     self.Logger.log(f"1 solding for {price_to_write} Kamas", False)
                 case 10:
-                    self.Ocr.item['price_10'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_10_img)
+                    self.Ocr.item['price_10'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_10_img, self.Ocr.custom_config_nbr)
                     price_to_write = self.Ocr.item['price_10']
                     price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
                     self.Logger.log(f"10 solding for {price_to_write} Kamas", False)
                 case 100:
-                    self.Ocr.item['price_100'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_100_img)
+                    self.Ocr.item['price_100'] = self.Ocr.process_nbr_img(self.Ocr.preprocessed_price_100_img, self.Ocr.custom_config_nbr)
                     price_to_write = self.Ocr.item['price_100']
                     price_to_write = price_to_write  if self.Ocr.last_item['name'] == self.Ocr.item['name'] and self.Ocr.last_item['quantity'] == self.Ocr.item['quantity'] else price_to_write - 1
                     pyautogui.write(str(price_to_write))
