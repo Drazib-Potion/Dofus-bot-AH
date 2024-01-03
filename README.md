@@ -63,5 +63,4 @@ pip install numpy opencv-python Pillow pytesseract pyautogui keyboard
 
 Thank you for using AH Bot! I hope it enhances your Auction House experience by selling all those bworks underwear 🤙🏻🤙🏻🤙🏻
 
-![Alt text](https://media.discordapp.net/attachments/1127705561975230598/1191341301203996724/image.png?ex=65a5160c&is=6592a10c&hm=704d1d11bb10d77b407aa91e2cceca0c35b28121003ab303682a954df5ab0d06&=&format=webp&quality=lossless](https://cdn.discordapp.com/attachments/501002294687694850/1192052713974939678/image.png?ex=65a7ac9a&is=6595379a&hm=40b1a46a44ee3708a1ee1a6fd25d789342ab804fe429462510d69c057f0825de&)https://cdn.discordapp.com/attachments/501002294687694850/1192052713974939678/image.png?ex=65a7ac9a&is=6595379a&hm=40b1a46a44ee3708a1ee1a6fd25d789342ab804fe429462510d69c057f0825de&)
-
+![Alt text](https://cdn.discordapp.com/attachments/501002294687694850/1192052713974939678/image.png?ex=65a7ac9a&is=6595379a&hm=40b1a46a44ee3708a1ee1a6fd25d789342ab804fe429462510d69c057f0825de&)
