@@ -5,7 +5,7 @@ This document provides instructions on how to use the Auction House (AH) Bot. Th
 
 **Launch the Bot:**
    - For users :
-      - launch the Dofus-bot-AH/main/Dofus-bot-AH.exe file in and click on Start 
+      - launch the Dofus-bot-AH/main/Dofus-bot-AH.exe file and click on Start 
    - For devs:
       - Open your terminal or command prompt.
       - Navigate to the directory where the AH Bot files are located.
